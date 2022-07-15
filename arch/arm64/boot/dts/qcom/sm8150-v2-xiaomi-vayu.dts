@@ -1,0 +1,39 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) 2022, Aleksandr Volkov <adomerlee@gmail.com>
+ */
+
+#include "sm8150-v2.dtsi"
+
+/ {
+	model = "Xiaomi Poco X3 Pro";
+	compatible = "xiaomi,vayu", "qcom,sm8150";
+
+	/* required for bootloader to select correct board */
+	qcom,msm-id = <0x153 0x20000>;
+	qcom,board-id = <0x2f 0x00>;
+
+	aliases {
+	};
+
+	chosen {
+		bootargs = "earlycon=tty0 console=tty0";
+
+		#address-cells = <2>;
+		#size-cells = <2>;
+		ranges;
+
+		stdout-path = "framebuffer0";
+
+		framebuffer0: framebuffer@9c000000 {
+			compatible = "simple-framebuffer";
+			reg = <0 0x9c000000 0 0x2400000>;
+			width = <1080>;
+			height = <2400>;
+			stride = <(1080 * 4)>;
+			format = "a8r8g8b8";
+			status= "okay";
+		};
+	};
+};
+
