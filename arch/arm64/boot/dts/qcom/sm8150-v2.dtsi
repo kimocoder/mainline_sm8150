@@ -1,0 +1,12 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) 2022, Aleksandr Volkov <adomerlee@gmail.com>
+ */
+
+#include "sm8150.dtsi"
+
+/ {
+	model = "Qualcomm Technologies, Inc. SM8150 V2";
+	qcom,msm-name = "SM8150 V2";
+	qcom,msm-id = <339 0x20000>;
+};
